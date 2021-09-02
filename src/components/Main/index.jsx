@@ -3,6 +3,7 @@ import { Links } from "src/components/Links";
 import styles from "src/components/Main/Main.module.css";
 
 export function Main(props) {
+    
     return (
         <main className={styles.main}>
             <Headline page={props.page}>
