@@ -1,4 +1,4 @@
-﻿import { useCallback, useState } from "react";
+﻿import { useCallback, useMemo, useState } from "react";
 
 export const useCounter = () => {
     const [count, setCount] = useState(1);
@@ -14,7 +14,9 @@ export const useCounter = () => {
         setIsShow((prevIsShow) => !prevIsShow);
     }, []);
 
-    const doubleCount = count * 2;
+    const doubleCount = useMemo(() => {
+        return count * 2;
+    }, [count]);
 
     return { count, isShow, handleClick, handleDisplay, doubleCount };
 };
