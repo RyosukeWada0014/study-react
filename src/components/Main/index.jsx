@@ -30,7 +30,7 @@ const ITEMS = [
     },
 ];
 
-export function Main(props) {
+export const Main = (props) => {
     const [items, setItems] = useState(ITEMS);
     const handleReduce = useCallback(() => {
         setItems((prevItems) => {
@@ -45,4 +45,4 @@ export function Main(props) {
             <Links items={items} />
         </main>
     );
-}
+};

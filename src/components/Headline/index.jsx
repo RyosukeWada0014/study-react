@@ -1,6 +1,6 @@
 ﻿import styles from "src/components/Headline/Headline.module.css";
 
-export function Headline({ page, children, handleReduce }) {
+export const Headline = ({ page, children, handleReduce }) => {
     return (
         <div>
             <h1 className={styles.title}>{page} page</h1>
@@ -12,4 +12,4 @@ export function Headline({ page, children, handleReduce }) {
             <button onClick={handleReduce}>減らす</button>
         </div>
     );
-}
+};
