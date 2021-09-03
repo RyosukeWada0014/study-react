@@ -14,5 +14,7 @@ export const useCounter = () => {
         setIsShow((prevIsShow) => !prevIsShow);
     }, []);
 
-    return { count, isShow, handleClick, handleDisplay };
+    const doubleCount = count * 2;
+
+    return { count, isShow, handleClick, handleDisplay, doubleCount };
 };
