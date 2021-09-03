@@ -1,13 +1,15 @@
 ﻿import styles from "src/components/Headline/Headline.module.css";
 
-export function Headline(props) {
+export function Headline({ page, children, handleReduce }) {
     return (
         <div>
-            <h1 className={styles.title}>{props.page} page</h1>
+            <h1 className={styles.title}>{page} page</h1>
 
             <p className={styles.description}>
-                Get started by editing {props.children}
+                アイテムの数は {children}個です。
             </p>
+
+            <button onClick={handleReduce}>減らす</button>
         </div>
     );
 }
