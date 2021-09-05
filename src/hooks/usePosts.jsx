@@ -1,6 +1,5 @@
 ﻿import useSWR from "swr";
-
-const fetcher = (...args) => fetch(...args).then((res) => res.json());
+import { fetcher } from "src/utils/fetcher";
 
 export const usePosts = () => {
   const { data, error } = useSWR(
