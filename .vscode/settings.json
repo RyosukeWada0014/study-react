@@ -1,5 +1,6 @@
 {
   "javascript.preferences.importModuleSpecifier": "non-relative",
   "editor.formatOnSave": true,
-  "editor.tabSize": 2
+  "editor.tabSize": 2,
+  "explorer.compactFolders": false
 }
