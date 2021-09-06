@@ -6,11 +6,11 @@ export const User = () => {
   const { data, error, isLoading } = useUser();
 
   if (isLoading) {
-    <div>ロード中です</div>;
+    return <div>ロード中です</div>;
   }
 
   if (error) {
-    <div>{error.message}</div>;
+    return <div>{error.message}</div>;
   }
 
   return (
@@ -19,15 +19,19 @@ export const User = () => {
         <title>{data?.title}</title>
       </Head>
       <h1>{data?.name}</h1>
-      <ul>
-        <li>{`Username: ${data?.username}`}</li>
-        <li>{`Email: ${data?.email}`}</li>
-      </ul>
-      <button>
-        <Link href="/users">
-          <a>Back</a>
-        </Link>
-      </button>
+      {data?.name ? (
+        <div>
+          <ul>
+            <li>{`Username: ${data?.username}`}</li>
+            <li>{`Email: ${data?.email}`}</li>
+          </ul>
+          <button>
+            <Link href="/users">
+              <a>Back</a>
+            </Link>
+          </button>
+        </div>
+      ) : null}
     </div>
   );
 };
