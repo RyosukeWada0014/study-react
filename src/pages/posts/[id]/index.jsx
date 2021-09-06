@@ -1,12 +1,9 @@
-﻿import Head from "next/head";
-
-import { Header } from "src/components/Header";
+﻿import { Header } from "src/components/Header";
 import { Post } from "src/components/Post";
-import styles from "src/styles/Home.module.css";
 
 const PostsId = () => {
   return (
-    <div className={styles.container}>
+    <div>
       <Header />
       <Post />
     </div>
