@@ -1,6 +1,6 @@
+import "tailwindcss/tailwind.css";
 import Head from "next/head";
 import { Layout } from "src/components/Layout/Layout";
-import "../styles/globals.css";
 
 const MyApp = ({ Component, pageProps }) => {
   return (
