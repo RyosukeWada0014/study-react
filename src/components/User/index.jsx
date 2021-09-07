@@ -1,5 +1,5 @@
 ﻿import Head from "next/head";
-import Link from "next/link";
+import { ArticlesByUserId } from "src/components/Posts/ArticlesByUserId";
 import { useUser } from "src/hooks/useUser";
 
 export const User = () => {
@@ -12,6 +12,7 @@ export const User = () => {
   if (error) {
     return <div>{error.message}</div>;
   }
+  console.log(data);
 
   return (
     <div>
@@ -19,19 +20,17 @@ export const User = () => {
         <title>{data?.title}</title>
       </Head>
       <h1>{data?.name}</h1>
-      {data?.name ? (
+      {data.name ? (
         <div>
+          <h2>詳細</h2>
           <ul>
             <li>{`Username: ${data?.username}`}</li>
             <li>{`Email: ${data?.email}`}</li>
           </ul>
-          <button>
-            <Link href="/users">
-              <a>Back</a>
-            </Link>
-          </button>
         </div>
       ) : null}
+      <h2>投稿</h2>
+      <ArticlesByUserId id={data.id} />
     </div>
   );
 };
