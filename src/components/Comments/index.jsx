@@ -23,7 +23,7 @@ export const Comments = () => {
           return (
             <li key={comment.id}>
               <Link href={`comments/${comment.id}`}>
-                <a>{comment.name}</a>
+                <a>{comment.body}</a>
               </Link>
             </li>
           );
