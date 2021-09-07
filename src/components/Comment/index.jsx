@@ -1,4 +1,5 @@
-﻿import { useComment } from "src/hooks/useComment";
+﻿import { ArticleByPostId } from "src/components/Post/ArticleByPostId";
+import { useComment } from "src/hooks/useComment";
 
 export const Comment = () => {
   const { data, error, isLoading } = useComment();
@@ -16,6 +17,8 @@ export const Comment = () => {
       <h1>{data?.name}</h1>
       <p>{`Email: ${data?.email}`}</p>
       <p>{`Comment: ${data?.body}`}</p>
+      <h2>元記事</h2>
+      <ArticleByPostId id={data.postId} />
     </div>
   );
 };
