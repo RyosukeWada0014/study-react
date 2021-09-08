@@ -14,11 +14,12 @@ export const Comment = () => {
 
   return (
     <div>
-      <h1>{data?.name}</h1>
-      <p>{`Email: ${data?.email}`}</p>
-      <p>{`Comment: ${data?.body}`}</p>
-      <h2>元記事</h2>
-      <ArticleByPostId id={data.postId} />
+      <p className='text-lg'>{data.name} ({data.email})</p>
+      <h1 className="font-bold text-3xl">{data.body}</h1>
+      <h2 className='font-bold text-lg mt-8'>元記事</h2>
+      <div className='mt-2'>
+        <ArticleByPostId id={data.postId} />
+      </div>
     </div>
   );
 };

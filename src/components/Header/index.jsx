@@ -12,7 +12,7 @@ const NAV_ITEMS = [
 
 export const Header = () => {
   return (
-    <header className="flex justify-center items-center border-b h-24 w-full">
+    <header className="flex justify-center items-center border-b h-24 w-full mb-4">
       {NAV_ITEMS.map((item) => {
         return (
           <Link href={item.href} key={item.href}>
