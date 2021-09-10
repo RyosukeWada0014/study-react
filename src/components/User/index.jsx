@@ -1,5 +1,4 @@
-﻿import Head from "next/head";
-import { ArticlesByUserId } from "src/components/Posts/ArticlesByUserId";
+﻿import { ArticlesByUserId } from "src/components/Posts/ArticlesByUserId";
 import { useUser } from "src/hooks/useUser";
 
 export const User = () => {

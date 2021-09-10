@@ -1,5 +1,4 @@
 ﻿import Head from "next/head";
-
 import { Header } from "src/components/Header";
 import { Users as UsersComponent } from "src/components/Users";
 
