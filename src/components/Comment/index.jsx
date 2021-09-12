@@ -1,4 +1,4 @@
-﻿import { ArticleByPostId } from "src/components/Post/ArticleByPostId";
+﻿import { PostByPostId } from "src/components/Post/PostByPostId";
 import { useComment } from "src/hooks/useComment";
 
 export const Comment = () => {
@@ -18,7 +18,7 @@ export const Comment = () => {
       <h1 className="font-bold text-3xl">{data.body}</h1>
       <h2 className='font-bold text-lg mt-8'>元記事</h2>
       <div className='mt-2'>
-        <ArticleByPostId id={data.postId} />
+        <PostByPostId id={data.postId} />
       </div>
     </div>
   );

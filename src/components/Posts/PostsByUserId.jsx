@@ -1,8 +1,8 @@
 ﻿import Link from "next/link";
-import { useArticlesByUserId } from "src/hooks/useFetchArray";
+import { usePostsByUserId } from "src/hooks/useFetchArray";
 
-export const ArticlesByUserId = (props) => {
-  const { data, error, isLoading, isEmpty } = useArticlesByUserId(props.id);
+export const PostsByUserId = (props) => {
+  const { data, error, isLoading, isEmpty } = usePostsByUserId(props.id);
 
   if (isLoading) {
     return <div>ロード中</div>;
