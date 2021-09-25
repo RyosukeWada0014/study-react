@@ -1,9 +1,12 @@
-﻿import { Comment } from "src/components/Comment";
+﻿import { useRouter } from "next/router";
+import { Comment } from "src/components/Comment";
 import { Header } from "src/components/Header";
 import { SWRConfig } from "swr";
 
 export const getStaticPaths = async () => {
-  const comments = await fetch("https://jsonplaceholder.typicode.com/comments");
+  const comments = await fetch(
+    "https://jsonplaceholder.typicode.com/comments?_limit=10"
+  );
   const commentsData = await comments.json();
   const paths = commentsData.map((comment) => ({
     params: {
@@ -13,20 +16,27 @@ export const getStaticPaths = async () => {
 
   return {
     paths,
-    fallback: false,
+    fallback: "blocking",
   };
 };
 
 export const getStaticProps = async (ctx) => {
   const { id } = ctx.params;
-  const COMMENTS_API_URL = `https://jsonplaceholder.typicode.com/comments/${id}`;
-  const comments = await fetch(COMMENTS_API_URL);
-  const commentsData = await comments.json();
+  const COMMENT_API_URL = `https://jsonplaceholder.typicode.com/comments/${id}`;
+  const comment = await fetch(COMMENT_API_URL);
+
+  if (!comment.ok) {
+    return {
+      notFound: true,
+    };
+  }
+
+  const commentData = await comment.json();
 
   return {
     props: {
       fallback: {
-        [COMMENTS_API_URL]: commentsData,
+        [COMMENT_API_URL]: commentData,
       },
     },
   };
@@ -34,6 +44,7 @@ export const getStaticProps = async (ctx) => {
 
 const Comments = (props) => {
   const { fallback } = props;
+
   return (
     <div>
       <Header />
