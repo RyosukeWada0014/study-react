@@ -1,5 +1,4 @@
-﻿import { Header } from "src/components/Header";
-import { User } from "src/components/User";
+﻿import { UserDetail } from "src/components/User/UserDetail";
 import { API_URL } from "src/utils/const";
 import { SWRConfig } from "swr";
 
@@ -9,7 +8,7 @@ export const getServerSideProps = async (ctx) => {
   const user = await fetch(USER_API_URL);
   const userData = await user.json();
 
-  const POSTS_API_URL = `${API_URL}/posts?userId=${userData.id}`;
+  const POSTS_API_URL = `${API_URL}/users/${userData.id}/posts`;
   const posts = await fetch(POSTS_API_URL);
   const postsData = await posts.json();
 
@@ -27,8 +26,7 @@ const UsersId = (props) => {
   const { fallback } = props;
   return (
     <SWRConfig value={{ fallback }}>
-      <Header />
-      <User />
+      <UserDetail />
     </SWRConfig>
   );
 };
