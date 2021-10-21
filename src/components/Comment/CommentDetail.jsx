@@ -1,4 +1,5 @@
-﻿import { useRouter } from "next/router";
+﻿import Head from "next/head";
+import { useRouter } from "next/router";
 import { PostTitleByCommentId } from "src/components/Post/PostTitleByCommentId";
 import { useFetch } from "src/hooks/useFetch";
 import { API_URL } from "src/utils/const";
@@ -20,6 +21,9 @@ export const CommentDetail = () => {
 
   return (
     <div>
+      <Head>
+        <title>{data.body}</title>
+      </Head>
       <p className="text-lg">
         {data.name} ({data.email})
       </p>
